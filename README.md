@@ -1,6 +1,6 @@
 # myblog
 
-   http://wangxuemin.github.io
+       http://wangxuemin.github.io
 
 or
   http://blog.csdn.net/mumumuwudi
