@@ -20,7 +20,7 @@ categories: linux
 CPU中大概只有一个CR3的寄存机存放的是物理地址，指向页表)，所以虚拟地址空间的一部分需要划分给内核
 使用：![](http://raw.githubusercontent.com/wangxuemin/myblog/master/pic_bak/linux_process_mem-1.png) 
 &emsp; &emsp; 这并不意味着内核使用了很多物理内存， 内核只是预留了一段虚拟内存空间，当内核需要时可以映射为物理
-内存, 内核的空间的页表有特殊flag(ring 2 for lower)，当用户空间的代码访问内核页表时会触发page fault
+内存, 内核的空间的页表有特殊flag(ring 2 or lower)，当用户空间的代码访问内核页表时会触发page fault
 在linux中, 内核空间在所有程序中指向的物理地址是一样的. 内核代码总是可寻址的.随时接受中断或系统调用. 与
 此相反用户的地址空间则会随着进程的切换不断变化, 
 
@@ -65,13 +65,13 @@ linux会随机stack、mmap、heap在虚拟空间中的地址，一般通过在�
 ![](http://raw.githubusercontent.com/wangxuemin/myblog/master/pic_bak/linux_process_mem-4.png) 
 
 &emsp; &emsp; 最后，我看来看一下最先面的BSS、data和代码段,  在C语言中BSS和data存放了静态(全局)变量, 其中BSS
-存放了未初始化的变量(static int cntActiveUsers)，BSS段是匿名的不映射任何文件.data段存放了代码中已
+存放了未初始化的变量(static int cntActiveUsers)，BSS段是匿名的不映射任何文件. data段存放了代码中已
 初始化的静态变量, data段不是匿名的而是映射了程序二进制文件中存已初始化静态变量的部分. 例如 static int
 cntWorkerBees = 10 会存放在data段， 虽说data段映射文件的一部分，这是私有映射数据在内存中的改变不会
 影响到文件.
 &emsp; &emsp; 下图的data段 包含一个4-byte的内存指针， 这个指针在data段, 但是这个指针指向的字符串却在text段，
 text段存放了一些子只读的字符串信息, text段也是你二进制文件在内存中的映射，同样向text段写操作会导致
-SegmetationFault. 这样可以避免一些指针错误. 当然这些指针错误最好在编码时就能发现
+SegmetationFault. 这样可以避免一些指针错误. 当然这些指针错误最好在编码时就能发现.
 
 ![](http://raw.githubusercontent.com/wangxuemin/myblog/master/pic_bak/linux_process_mem-5.png) 
 

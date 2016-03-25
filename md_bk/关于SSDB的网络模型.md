@@ -33,10 +33,10 @@ void NetworkServer::serve(){
 	const Fdevents::events_t *events;
 
 	fdes->set(serv_link->fd(), FDEVENT_IN, 0, serv_link);
-	// workpool每处理完毕后，向该管道写一个字符
-	fdes->set(this->reader->fd(), FDEVENT_IN, 0, this->reader); 
 	
+	// workpool每处理完毕后，向管道写一个字符
 	//通知network线程有数据到来
+	fdes->set(this->reader->fd(), FDEVENT_IN, 0, this->reader); 	
 	fdes->set(this->writer->fd(), FDEVENT_IN, 0, this->writer);
 	
 	uint32_t last_ticks = g_ticks;

@@ -8,7 +8,7 @@ categories: python
 ---
 
 python网络库也有了基于协程的实现，比较著名的是 gevent、eventlet 它两之间的关系可以参照
-Comparing gevent to eventlet， 本文主要简单介绍一下eventlet一个例子
+[Comparing gevent to eventlet](http://blog.gevent.org/2010/02/27/why-gevent/)， 本文主要简单介绍一下eventlet一个例子
 客户端：
 ```python
 import eventlet

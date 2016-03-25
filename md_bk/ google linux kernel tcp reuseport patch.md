@@ -57,3 +57,5 @@ http://patchwork.ozlabs.org/patch/50430/
 2） 另外就是TCP/UDP的收报流程，如TCP的SYN建连报文来时，需要在这些绑定的相同的端口的 listen socket 均衡
 的选择一个合适的，下面代码增加了查找相同端口号的listen socket 的逻辑:
 ![](http://raw.githubusercontent.com/wangxuemin/myblog/master/pic_bak/google-reuseport-1.png) 
+
+转载请注明出处 谢谢~~

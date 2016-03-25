@@ -22,7 +22,7 @@ issue), there are more duplicated listen sockets created to improve the throughp
 that has only 8 or less CPU threads, there will be only 1 listen socket. This makes sure duplicated listen sockets
 only being created when necessary. 
 
-在这里我们使用一个简单的方法来支持SO_REUSEPORT, 当enable SO_REUSEPORT时在主进程中去配置
+在这里我们使用一个简单的方法来支持SO_REUSEPORT, 当enable SO_REUSEPORT时, 在主进程中去配置
 和创建一定数量的listen socket， 然后让子进程去继承。 在这种情况下我们不用担心至少有一个listen socket存活
 (配置升级).  创建监听socket  的数量是通过CPU的数量决定的.  CPU数目多则多创建socket. CPU数目少于8核
 则只会创建一个listen socket.
@@ -100,3 +100,4 @@ static ngx_int_t ngx_event_process_init(ngx_cycle_t *cycle)
 }
 
 ``` 
+转载请注明出处 谢谢~~

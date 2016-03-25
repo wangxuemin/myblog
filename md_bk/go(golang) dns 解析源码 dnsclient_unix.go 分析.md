@@ -1,6 +1,6 @@
 ---
 title: go(golang) dns 解析源码 go/src/net/dnsclient_unix.go 分析
-date: 2015-09-04 00:17:37
+date: 2015-09-04 00:18:37
 tags:
 - golang
 - dns
@@ -9,7 +9,7 @@ categories:
 ---
 
 关于go dns解析的一些说明参照我的另一篇文章 --go (golang) DNS域名解析实现--
-go dns 解析 源码在go/src/net/dnsclient_unix.go, lookupHost()通过向本地dns server发送请求，获得IP和域名的
+go dns 解析 源码在go/src/net/dnsclient_unix.go,  lookupHost()通过向本地dns server发送请求，获得IP和域名的
 对应关系然后返回，函数调用关系如下：
 ```c
 //lookupHost()

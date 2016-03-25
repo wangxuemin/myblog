@@ -17,7 +17,7 @@ Lemon的一篇论文， Jonathan Lemon也是Kqueue的发明者。文章链接:
 
 
 本文主要说明一下其中的kqueue的实现部分,从网络收发部分看kqueue和epoll的使用方式和实现原理都比较类似.
-这篇文章介绍了kqueue的使用方法：使用 kqueue 在 FreeBSD 上开发高性能应用服务器 . kqueue的是主要实现逻辑
+这篇文章介绍了kqueue的使用方法：[使用 kqueue 在 FreeBSD 上开发高性能应用服务器](http://www.ibm.com/developerworks/cn/aix/library/1105_huangrg_kqueue/) . kqueue的是主要实现逻辑
 在kern_event.c 里面(freebsd 4.1)
 
 在kqueue实现中，比较关键的是一个knote结构体，该结构体在内核空间对应于应用层的kevent结构体.  knote
@@ -62,8 +62,8 @@ Filters：
 当有事件发生时（收到一个数据包、文件被修改、一个进程退出），最终会将事件通知给应用层. 收到事件时
 事件源会对attach到自己的knotes链表调用knote()函数.knote()扫描所有link到该事件源的knotes，检测事件是否满足
 通知条件(filter()函数）.如果事件条件满足则将该knote放入到kqueue的active list队列里，最终会传递给应用层.
-投递：
 
+投递：
 主要将kqueue active list里的事件copy到应用层下面是调用栈示简单示意图(freebsd 4.1 ),以TCP为例:
 
 

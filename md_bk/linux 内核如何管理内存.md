@@ -37,7 +37,6 @@ Address Descriptor)，VAD存放在一个AVL树中.
 
 &emsp; &emsp; CPU使用页表将虚拟地址转化为真正的物理地址,  每一个进程都有自己的页表, 当进程切换时当前进程对应
 的页表也会跟着切换.linux进程内存管理里有一个pgd的字段指向该进程的页表. 虚拟地址的每一页都在页表中
-
 存在一个记录称作页表项（PTE）用来指向真是的物理页, 在X86系统里每一个PTE大小为4个BYTE如下图：
 ![](http://raw.githubusercontent.com/wangxuemin/myblog/master/pic_bak/linux-kenel-mange-mem-4.png) 
 &emsp; &emsp; PTE中有很多flag,linux有专门的函数用来设置或读取这些flag. 其中P标志位表示该虚拟内存页是否已经映射
@@ -77,7 +76,6 @@ PTE的一些标志位进行扩展.
 完成资源的分配. 内核的这种机制称作延迟分配, 是虚拟内存管理的基本准则. VMA记录了已经同意分配的资源,
 PTE真实反映了内核确切已经分配的资源, 这两个结构体共同完成了进程的内存管理； 在page fault处理,释放
 内存, 内存的换出中都扮演了重要的角色. 让我们来看一个内存分配的例子:
-
 ![](http://raw.githubusercontent.com/wangxuemin/myblog/master/pic_bak/linux-kenel-mange-mem-7.png) 
 &emsp; &emsp; 当进程需要更多内存是会调用brk()系统调用, 内核只是在VMA区中标识了一块内存，真是的物理内存页此
 时并没有分配. 一旦用户进程试图访问VMA区中的这些内存时,会触发 page fault, 处理page fault的是
