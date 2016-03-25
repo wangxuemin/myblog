@@ -13,7 +13,8 @@ epoll最终和accept一样解决了新建连接的惊群问题 patch地址：
  https://github.com/torvalds/linux/commit/df0108c5da561c66c333bb46bfe3c1fc65905898
 patch比较简单， 下面摘录了一部分关键修改~~
 ![](http://raw.githubusercontent.com/wangxuemin/myblog/master/pic_bak/epoll-exculsive-1.png) 
-
+ <!-- more --> 
+ 
 在加入listen socket的sk_sleep队列 的唤醒队列里使用了 add_wait_queue_exculsive()函数，  当tcp 收到 三次
 握手最后一个 ack 报文时调用sock_def_readable时，只唤醒一个等待源， 从而避免’惊群‘.
 调用栈如下：
