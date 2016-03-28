@@ -10,7 +10,7 @@ categories:
 
 之前使用过GO语言写了一个实时图片下载程序，主要考虑到GO语言的DNS解析对协程支持友好， 即
 DNS解析时不会阻塞执行线程，只会阻塞当前协程，顺便研究了一下GO的net.LookupHost/ResolveIPAddr
-实现方式。下面一段描述翻译自go语言的官方文档 https://golang.org/pkg/net/域名解析：
+实现方式。下面一段描述翻译自go语言的官方文档 https://golang.org/pkg/net/ 域名解析：
 域名解析函数，Dial函数会间接调用到，而LokupHost和LookupAddr则会直接调用域名解析函数，不同
 的操作系统实现不同,  在Unix系统中有两种方法进行域名解析：
 

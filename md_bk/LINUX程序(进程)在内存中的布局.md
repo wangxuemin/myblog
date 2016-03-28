@@ -8,7 +8,6 @@ categories: linux
 ---
 
 翻译自: http://duartes.org/gustavo/blog/post/anatomy-of-a-program-in-memory/ 感谢作者， 尤其一些图
-
 很漂亮,建议读者亲自读一遍英文.
 
 &emsp; &emsp; 内存管理是操作系统的核心; 是编程和系统管理的关键部分，在接下来的几篇文章中会从实际应用和内部角
