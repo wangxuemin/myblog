@@ -11,6 +11,7 @@ categories:
 整理下thrift TNonblockingServer的工作流程，简单记录下， 因为处理过程比较复杂不具体分析了，
 TNonblockingServer的工作流程如下：
 ![](http://raw.githubusercontent.com/wangxuemin/myblog/master/pic_bak/thrift.png) 
+ <!-- more --> 
 
 --1-- server 创建 多个 iothread 和  工作线程池 workpool  thread (给iothread发消息的方式主要通过管道的方式进行 )
 --2-- 传递listenfd 给 iothread 的 number 为0的线程，该线程监听listen socket的accept事件
