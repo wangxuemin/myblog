@@ -18,7 +18,3 @@ block_cache 通过leveldb.block_size 设置；
 ![](http://raw.githubusercontent.com/wangxuemin/myblog/master/pic_bak/leveldb-cache-1.png) 
 
 转载请注明出处 谢谢~~
-
-
-
-&emsp

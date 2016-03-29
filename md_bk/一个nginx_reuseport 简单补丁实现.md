@@ -235,3 +235,5 @@ diff -r 6d73e0dc4f64 -r 55ad072b8934 src/os/unix/ngx_process_cycle.c
 -    ccf = (ngx_core_conf_t *) ngx_get_conf(cycle->conf_ctx, ngx_core_module);
 
 ``` 
+
+转载请注明出处，谢谢。。
