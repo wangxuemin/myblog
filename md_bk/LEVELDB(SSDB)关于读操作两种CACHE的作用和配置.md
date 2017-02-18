@@ -7,8 +7,9 @@ categories: leveldb
 ---
 SSDB及LEVELDB的用来优化查找Cache分为两种，分别是table_cache和block_cache。
 ``` 
-  table_cache用来缓存的是sstable的索引数据，也可以理解为mysql中得二级索引在内存中得缓存， 及通常所
-  说的元数据的缓存，bloom_fileter就放在table_cache,来快速定位一个key是否在该table中.
+  table_cache: 用来缓存的是sstable的索引数据，也可以理解为mysql中索引在内存中得缓存， 及通
+   常所说的元数据的缓存；index_block, bloom_fileter就放在table_cache,来快速定位一个key
+   是否在该table中；
 
   block_cache用来缓存的block数据，即文件内容的缓存;
 ``` 
