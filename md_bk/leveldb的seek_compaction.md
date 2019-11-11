@@ -1,11 +1,11 @@
 ---
 title:  leveldb的seek_compaction
-date: 2016-02-16 07:59:34
+date: 2016-10-16 07:59:34
 tags:
 - leveldb
 
 categories:
-- linux
+- leveldb
 ---
 
 Seek Compaction：
