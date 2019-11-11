@@ -1,5 +1,5 @@
 ---
-title:  leveldb的block cache 大小对性能的影响.md
+title:  leveldb的block cache 大小对性能的影响
 date: 2016-06-09 07:59:34
 tags:
 - leveldb
