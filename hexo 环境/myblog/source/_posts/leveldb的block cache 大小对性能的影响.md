@@ -13,6 +13,15 @@ leveldb使用的缓存：
 //   indexes and  bloom filters(table索引信息缓存)
 //   block cache (解压后的数据)
 //   page cache （压缩的数据）
+
+//   indexes and  bloom filters    block cache 
+//         |           |            |
+//         \           |           /                    
+//                
+//                  page cache 
+//                     |
+//                     |
+//                    disk
 ```
 在非DirectIO下，block cache作为文件数据的cache层，下层还有os 的page cache 缓存了
 硬盘中的文件, 所以block cache大小对系统性能的影响不大. block cache 因为是解压
