@@ -11,6 +11,8 @@ categories:
 
 
 前一段时间给公司内部分享了关于Linux动态跟踪技术的一个PPT:
+
+
 ![](https://github.com/wangxuemin/myblog/blob/master/pic_bak/ebpf/perf-01.jpg?raw=true) 
 ![](https://github.com/wangxuemin/myblog/blob/master/pic_bak/ebpf/perf-02.jpg?raw=true) 
 ![](https://github.com/wangxuemin/myblog/blob/master/pic_bak/ebpf/perf-03.jpg?raw=true) 
