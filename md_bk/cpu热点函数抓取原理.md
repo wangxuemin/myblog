@@ -1,16 +1,20 @@
 cpu热点抓取原理，怎么才能知道是进程的哪一个函数消耗了cpu资源呢？目前gperftools,async-profile,perf 都针对不同的语言提供了抓取cpu热点函数的功能，他们抓取的原理都很类似，如果不依赖内核支持的话，简单来说就是在用户空间设置一个timer定时器，timer以一定的频率向进程发送信号，在信号处理函数中可以拿到进程正在执行的调用栈，将采集到这些调用栈统计分析一下，数量最多的那个及时占用cpu最高的热点函数
 gperftools的实现代码在[profiler.cc](https://github.com/gperftools/gperftools/blob/51b4875f8ade3e0930eed2dc2a842ec607a94a2c/src/profiler.cc), 中定时器回调函数处理流程调用栈如下图所示。
 
+
 ```c
 //    GetStackTrace() and store in the Bucket
 //             |
-//    ProfileData::Add(unsigned long pc)
+//    ProfileData::Add(unsigned long pc)   //在信号处理函数中获取当前的调用栈地址信息并存储
 //             |
-//    ProfileData::prof_handler()
+//    ProfileData::prof_handler()     // SIGPROF信号处理函数
 //             |
-//    < SIGPROF signal >
+//    < SIGPROF signal >      
 
 ```
+在profile.cc中生成的CPUPROFILE只是存储了调用栈的二进制地址信息. 至于对应符号表的对应关系则是通过pprof这个perl脚本来实现
+里面用到了nm/objdump/addr2line等一些工具来帮助找到地址和函数名称的对应关系
+
 
 async-proflie的itimer引擎使用了跟gperftools一样的原理，代码更加简单和清晰
 ```c
@@ -59,3 +63,4 @@ perf_event是perf相关的一个系统调用,由内核提供给进程使用功�
 perf_event可抓取的信息非常丰富，cpu热点只是其中之一
 
 
+关于perf的使用参考自己在公司社区的一篇文章  https://heapdump.cn/article/2497635
