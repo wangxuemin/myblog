@@ -57,10 +57,10 @@ void ITimer::stop() {
 原理比较清楚了，但是async-profile默认的引擎和perf工具则是依赖perf_event来抓取热点的并没有使用timer.
 perf是一个功能强大的性能统计和分析工具 https://perf.wiki.kernel.org/index.php/Tutorial
 perf_event是perf相关的一个系统调用,由内核提供给进程使用功能强大，其中的抓取cpu热点分支相对于上述timer方式存在下面几个优点
-由硬件和内核触发，更加精确 在最初版本中可以看到当前运行函数的调用栈由intel_pmu_handle_irq（）触发，This handler is triggered by the local APIC
-因为代码在内核中，抓取热点函数调用栈非常的高效，对应用程序性能几乎没有影响
-不同于gperftools和async需要再目标程序中加载额外代码， perf_event对于目标程序没有任何入侵性。
-perf_event可抓取的信息非常丰富，cpu热点只是其中之一
+1. 由硬件和内核触发，更加精确 在最初版本中可以看到当前运行函数的调用栈由intel_pmu_handle_irq（）触发，This handler is triggered by the local APIC
+2. 因为代码在内核中，抓取热点函数调用栈非常的高效，对应用程序性能几乎没有影响
+3. 不同于gperftools和async需要再目标程序中加载额外代码， perf_event对于目标程序没有任何入侵性。
+4. perf_event可抓取的信息非常丰富，cpu热点只是其中之一
 
 
 关于perf的使用参考自己在公司社区的一篇文章  https://heapdump.cn/article/2497635
