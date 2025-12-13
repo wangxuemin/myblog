@@ -1,6 +1,6 @@
 ---
 title: nginx_lua 扩展让 nginx 拥有可编程能力
-date: 2016-01-26 08:15:06
+date: 2015-01-26 08:15:06
 tags:
 - ngx_lua
 - lua

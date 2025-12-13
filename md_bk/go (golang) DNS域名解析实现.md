@@ -1,6 +1,6 @@
 ---
 title: go (golang) DNS域名解析实现
-date: 2015-09-04 00:17:37
+date: 2015-05-29 00:17:37
 tags:
 - golang
 - dns

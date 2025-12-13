@@ -14,7 +14,6 @@ categories:
 
 
 使用syscount这个perf-tools 跟踪某一进程的系统调用情况时，并不支持-d 选项如下：
-
 ```c
 
 USAGE: syscount [-chv] [-t top] {-p PID|-d seconds|command}
@@ -37,7 +36,6 @@ USAGE: syscount [-chv] [-t top] {-p PID|-d seconds|command}
 -d 只支持整个系统的调用统计，非常不方便，简单修改了syscout 支持 syscount -cp 923 -d 10, 支持统计进程
 在-d 时间段 所有syscall调用次数的统计：https://github.com/wangxuemin/linux-ftools
 效果如下：
-
 ```c
 
 ➜  perf-tools sudo ./syscout -cp 15572 -d 10
@@ -76,11 +74,9 @@ futex              1853664
 
 ```
 
-
-vmtouch 可以查看某一目录里文件的整体cache情况，很多时候的需求是找出某一个大目录占用page cache 最高的文件，
-修改了vmtouch这个小工具，支持打印出某一个目录下的文件占用cache情况，并输出占用cache最高的N个文件和他们的
-cache 占用详情:https://github.com/wangxuemin/vmtouch
-
+vmtouch 可以查看某一目录里文件的整体cache情况，很多时候的需求是找出某一个大目录占用page cache 最高的
+文件，修改了vmtouch这个小工具，支持打印出某一个目录下的文件占用cache情况，并输出占用cache最高的N个
+文件和他们的cache 占用详情:https://github.com/wangxuemin/vmtouch
 
 
 转载请注明出处，谢谢。。

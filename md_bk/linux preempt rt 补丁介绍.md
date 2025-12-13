@@ -1,6 +1,6 @@
 ---
 title:  Linux preempt rt 补丁介绍
-date: 2025-05-27 00:17:37
+date: 2024-05-27 00:17:37
 tags:
 - Linux
 - rt

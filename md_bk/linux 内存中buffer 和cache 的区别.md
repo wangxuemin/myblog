@@ -1,6 +1,6 @@
 ---
 title: linux 内存中buffer 和cache 的区别
-date: 2015-08-04 04:17:37
+date: 2015-07-30 04:17:37
 tags:
 - linux
 - buffer

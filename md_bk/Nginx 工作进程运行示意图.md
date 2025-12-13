@@ -1,6 +1,6 @@
 ---
 title: Nginx 工作进程运行示意图
-date: 2016-01-25 07:05:03
+date: 2015-01-25 07:05:03
 tags: 
 - nginx
 categories: nginx
