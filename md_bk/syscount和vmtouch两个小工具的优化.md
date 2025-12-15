@@ -77,6 +77,6 @@ futex              1853664
 vmtouch 可以查看某一目录里文件的整体cache情况，很多时候的需求是找出某一个大目录占用page cache 最高的
 文件，修改了vmtouch这个小工具，支持打印出某一个目录下的文件占用cache情况，并输出占用cache最高的N个
 文件和他们的cache 占用详情:https://github.com/wangxuemin/vmtouch 结果如下：
-![](https://github.com/wangxuemin/myblog/blob/master/pic_bak/vmtouch/vmtouch-top.jpg)
+![](https://github.com/wangxuemin/myblog/blob/master/pic_bak/vmtouch/vmtouch-top.jpg?raw=true)
 
 转载请注明出处，谢谢。。
